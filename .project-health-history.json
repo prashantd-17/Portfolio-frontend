@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": "2025-11-18T07:01:44.028Z",
+    "score": 55,
+    "vulnerabilities": 0,
+    "unusedDeps": 0,
+    "sizeMB": 299.72
+  },
+  {
+    "timestamp": "2025-11-18T07:03:00.437Z",
+    "score": 55,
+    "vulnerabilities": 0,
+    "unusedDeps": 0,
+    "sizeMB": 299.84
+  },
+  {
+    "timestamp": "2025-11-18T07:19:31.651Z",
+    "score": 55,
+    "vulnerabilities": 0,
+    "unusedDeps": 0,
+    "sizeMB": 299.96
+  },
+  {
+    "timestamp": "2025-11-18T07:19:46.723Z",
+    "score": 55,
+    "vulnerabilities": 0,
+    "unusedDeps": 0,
+    "sizeMB": 300.09
+  }
+]

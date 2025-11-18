@@ -1,0 +1,15 @@
+<div
+    class="min-h-screen transition-colors duration-300"
+    [class]="
+      currentTheme() === 'dark'
+        ? 'bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900'
+        : 'bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100'
+    "
+  >
+    <app-navigation />
+    <app-hero />
+    <app-about />
+    <app-skills />
+    <app-projects />
+    <app-contact />
+  </div>

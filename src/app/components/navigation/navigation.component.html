@@ -1,0 +1,164 @@
+<nav
+    class="fixed top-0 w-full z-50 transition-colors duration-300"
+    [class]="
+      currentTheme() === 'dark'
+        ? 'bg-slate-900/80 backdrop-blur-md shadow-lg'
+        : 'bg-white/80 backdrop-blur-md shadow-sm'
+    "
+  >
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <button
+          (click)="scrollToSection('hero')"
+          class="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent hover:scale-105 transition-transform"
+        >
+          Portfolio
+        </button>
+
+        <div class="hidden md:flex space-x-8 items-center">
+          <button
+            *ngFor="let item of navItems"
+            (click)="scrollToSection(item.toLowerCase())"
+            [class]="
+              currentTheme() === 'dark'
+                ? 'text-slate-300 hover:text-blue-400'
+                : 'text-slate-700 hover:text-blue-600'
+            "
+            class="transition-colors font-medium"
+          >
+            {{ item }}
+          </button>
+
+          <button
+            (click)="toggleTheme()"
+            class="p-2 rounded-lg transition-colors"
+            [class]="
+              currentTheme() === 'dark'
+                ? 'bg-slate-800 hover:bg-slate-700 text-yellow-400'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+            "
+            [attr.aria-label]="'Toggle ' + (currentTheme() === 'dark' ? 'light' : 'dark') + ' mode'"
+          >
+            <svg
+              *ngIf="currentTheme() === 'dark'"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.78a1 1 0 011.414 0l.707.707a1 1 0 11-1.414 1.414l-.707-.707a1 1 0 010-1.414zm2.828 2.828a1 1 0 011.414 0l.707.707a1 1 0 11-1.414 1.414l-.707-.707a1 1 0 010-1.414z"
+              />
+            </svg>
+            <svg
+              *ngIf="currentTheme() === 'light'"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <div class="md:hidden flex items-center gap-2">
+          <button
+            (click)="toggleTheme()"
+            class="p-2 rounded-lg transition-colors"
+            [class]="
+              currentTheme() === 'dark'
+                ? 'bg-slate-800 hover:bg-slate-700 text-yellow-400'
+                : 'bg-slate-100 hover:bg-slate-200 text-slate-700'
+            "
+          >
+            <svg
+              *ngIf="currentTheme() === 'dark'"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                fill-rule="evenodd"
+                d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4.22 1.78a1 1 0 011.414 0l.707.707a1 1 0 11-1.414 1.414l-.707-.707a1 1 0 010-1.414zm2.828 2.828a1 1 0 011.414 0l.707.707a1 1 0 11-1.414 1.414l-.707-.707a1 1 0 010-1.414z"
+              />
+            </svg>
+            <svg
+              *ngIf="currentTheme() === 'light'"
+              class="w-5 h-5"
+              fill="currentColor"
+              viewBox="0 0 20 20"
+            >
+              <path
+                d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"
+              />
+            </svg>
+          </button>
+
+          <button
+            class="p-2 rounded-lg transition-colors"
+            [class]="
+              currentTheme() === 'dark'
+                ? 'hover:bg-slate-800 text-slate-300'
+                : 'hover:bg-slate-100 text-slate-700'
+            "
+            (click)="toggleMenu()"
+          >
+            <svg
+              *ngIf="!isOpen()"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            </svg>
+            <svg
+              *ngIf="isOpen()"
+              class="w-6 h-6"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M6 18L18 6M6 6l12 12"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div
+      *ngIf="isOpen()"
+      [class]="
+        currentTheme() === 'dark'
+          ? 'bg-slate-800 border-t border-slate-700'
+          : 'bg-white border-t border-slate-200'
+      "
+    >
+      <div class="px-4 py-3 space-y-3">
+        <button
+          *ngFor="let item of navItems"
+          (click)="scrollToSection(item.toLowerCase())"
+          [class]="
+            currentTheme() === 'dark'
+              ? 'text-slate-300 hover:bg-slate-700'
+              : 'text-slate-700 hover:bg-slate-100'
+          "
+          class="block w-full text-left px-4 py-2 rounded-lg transition-colors"
+        >
+          {{ item }}
+        </button>
+      </div>
+    </div>
+  </nav>
