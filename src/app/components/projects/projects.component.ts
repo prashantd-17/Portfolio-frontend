@@ -33,7 +33,7 @@ export class ProjectsComponent {
       title: 'TextFusion AI',
       description:
         'A smart multilingual application that converts speech or audio into accurate text and translates it into multiple languages in real time. It supports audio upload, live microphone input, fast text translation, and includes both speech-to-text and text-to-speech features — all wrapped in a simple and intuitive user interface.',
-      tech: ['React', 'Firebase', 'DnD Kit', 'Framer Motion'],
+      tech: ['Angular', 'TypeScript', 'Bootstrap', 'NodeJS'],
       image: '../../../assets/translator.png',
       link: 'https://transcriptor-v5w8.onrender.com'
     },
