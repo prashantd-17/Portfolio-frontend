@@ -1,4 +1,5 @@
-.cv-float-btn {
+@media screen and (min-width : 768px) {
+  .cv-float-btn {
   position: fixed;
   right: 25px;
   bottom: 40px;
@@ -16,6 +17,7 @@
   transition: 0.25s ease-in-out;
   z-index: 1000;
 }
+}
 
 .cv-float-btn:hover {
   transform: translateY(-4px) scale(1.05);
@@ -30,13 +32,35 @@
 }
 
 /* optional: hide text on mobile/smaller screens */
-@media (max-width: 600px) {
+@media (max-width: 767px) {
   .cv-float-btn {
-    padding: 14px 16px;
+    padding: 7px 21px;
   }
   .cv-float-btn .text {
     display: none;
   }
+
+  .cv-float-btn {
+    position: fixed;
+    right: 0px;
+    bottom: 40px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: linear-gradient(
+      135deg,
+      #0077ff,
+      #00e1ff);
+    color: white;
+    padding: 14px 22px;
+    border-radius: 50px 0px 0px 50px;
+    font-size: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+    transition: 0.25s ease-in-out;
+    z-index: 1000;
+}
 }
 
 @keyframes bounce {
