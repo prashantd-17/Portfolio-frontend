@@ -1,0 +1,45 @@
+.cv-float-btn {
+  position: fixed;
+  right: 25px;
+  bottom: 40px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #0077ff, #00e1ff);
+  color: white;
+  padding: 14px 22px;
+  border-radius: 50px;
+  font-size: 16px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
+  transition: 0.25s ease-in-out;
+  z-index: 1000;
+}
+
+.cv-float-btn:hover {
+  transform: translateY(-4px) scale(1.05);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.35);
+}
+
+/* download icon animation */
+.cv-float-btn .icon {
+  display: inline-block;
+  font-size: 20px;
+  animation: bounce 1s infinite;
+}
+
+/* optional: hide text on mobile/smaller screens */
+@media (max-width: 600px) {
+  .cv-float-btn {
+    padding: 14px 16px;
+  }
+  .cv-float-btn .text {
+    display: none;
+  }
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(4px); }
+}
